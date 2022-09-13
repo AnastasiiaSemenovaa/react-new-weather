@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
-  let [weather, setWeather] = useState({ ready: false });
+  let [weatherData, setWeatherData] = useState({ ready: false });
 
   function showResponse(response) {
-    setWeather({
+    setWeatherData({
       ready: true,
-      date: new Date(response.data.dt * 1000),
+      date: response.data.dt * 1000,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
@@ -34,7 +33,7 @@ export default function Weather(props) {
     axios.get(url).then(showResponse);
   }
 
-  if (weather.ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
@@ -43,7 +42,7 @@ export default function Weather(props) {
               <input
                 type="search"
                 placeholder="Enter a city.."
-                autofocus="on"
+                autoFocus="on"
                 className="form-control"
                 onChange={handleCityChange}
               />
@@ -53,7 +52,29 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <WeatherInfo />
+        <div className="WeatherInfo">
+          <div className="container text-center">
+            <div className="row">
+              <div className="col-6">
+                <ul>
+                  <li>{weatherData.city}</li>
+                  <li>{weatherData.date}</li>
+                  <li>{weatherData.description}</li>
+                </ul>
+              </div>
+              <div className="col-6">
+                <ul>
+                  <li>
+                    <img src={weatherData.icon} alt="weather description" />{" "}
+                  </li>
+                  <li>17 °C</li>
+                  <li>Humidity: {weatherData.humidity}</li>
+                  <li>Wind: {weatherData.wind} km/h</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
