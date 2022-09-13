@@ -5,7 +5,7 @@ import Weather from "./Weather";
 export default function App() {
   return (
     <div>
-      <Weather />
+      <Weather defaultCity="New York" />
     </div>
   );
 }
