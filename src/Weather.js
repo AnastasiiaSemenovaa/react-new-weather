@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
+import TemperatureWeather from "./TemperatureWeather";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -11,6 +12,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -57,25 +59,39 @@ export default function Weather(props) {
             <div className="row">
               <div className="col-6">
                 <ul>
-                  <li>{weatherData.city}</li>
+                  <li className="City">{weatherData.city}</li>
                   <li>
-                    <FormattedDate />
+                    <FormattedDate date={weatherData.date} />
                   </li>
-                  <li>{weatherData.description}</li>
+                  <li>
+                    <TemperatureWeather celsius={weatherData.temperature} />
+                  </li>
                 </ul>
               </div>
               <div className="col-6">
                 <ul>
+                  <li>Humidity: {weatherData.humidity}</li>
+                  <li>Wind: {weatherData.wind} km/h</li>
+                  <li>{weatherData.description}</li>
                   <li>
                     <img src={weatherData.icon} alt="weather description" />{" "}
                   </li>
-                  <li>17 °C</li>
-                  <li>Humidity: {weatherData.humidity}</li>
-                  <li>Wind: {weatherData.wind} km/h</li>
                 </ul>
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          {" "}
+          <a
+            href="https://github.com/AnastasiiaSemenovaa/react-weather"
+            className="linkStyle"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View the code
+          </a>{" "}
+          created by Anastasiia Semenova
         </div>
       </div>
     );
