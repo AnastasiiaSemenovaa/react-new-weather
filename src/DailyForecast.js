@@ -16,7 +16,7 @@ export default function DailyForecast(props) {
     return days[day];
   }
   function showIcon() {
-    let icon = `http://openweathermap.org/img/wn/${props.data.weather.icon}@2x.png`;
+    let icon = `http://openweathermap.org/img/wn/${props.data.icon}@2x.png`;
     return `${icon}`;
   }
   return (

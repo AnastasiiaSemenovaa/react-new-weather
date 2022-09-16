@@ -6,23 +6,27 @@
   background: rgb(245, 215, 248);
   padding: 30px;
   font-size: 15px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 500;
 }
 form {
   padding-bottom: 40px;
 }
 .Unit a {
   text-decoration: none;
+  color: rgb(73, 73, 242);
 }
 .Unit {
   position: relative;
   bottom: 12px;
+  font-weight: 400;
 }
 .TempSymbol {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
 }
 .City {
-  font-size: 40px;
+  font-size: 47px;
 }
 .linkStyle {
   text-decoration: none;
