@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import TemperatureWeather from "./TemperatureWeather";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -11,6 +12,7 @@ export default function Weather(props) {
   function showResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
@@ -81,7 +83,9 @@ export default function Weather(props) {
             </div>
           </div>
         </div>
-        <div>
+        <WeatherForecast coordinates={weatherData.coordinates} />
+
+        <div className="Footer">
           {" "}
           <a
             href="https://github.com/AnastasiiaSemenovaa/react-new-weather"

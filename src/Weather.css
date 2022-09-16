@@ -2,8 +2,8 @@
   text-align: center;
   border: 1px solid white;
   border-radius: 4px;
-  margin: 20px 10px;
-  background: rgb(251, 233, 211);
+  margin: 20px 40px;
+  background: rgb(245, 215, 248);
   padding: 30px;
   font-size: 15px;
 }
@@ -28,4 +28,7 @@ form {
   text-decoration: none;
   color: rgb(92, 21, 21);
   font-weight: 500;
+}
+.Footer {
+  margin-top: 50px;
 }
