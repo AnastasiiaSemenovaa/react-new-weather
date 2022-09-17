@@ -36,3 +36,9 @@ form {
 .Footer {
   margin-top: 50px;
 }
+.ForecastTemperatureMin {
+  opacity: 0.7;
+}
+.ForecastTemperature {
+  font-size: 13px;
+}

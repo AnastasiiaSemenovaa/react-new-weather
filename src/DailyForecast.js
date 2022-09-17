@@ -16,7 +16,7 @@ export default function DailyForecast(props) {
     return days[day];
   }
   function showIcon() {
-    let icon = `http://openweathermap.org/img/wn/${props.data.icon}@2x.png`;
+    let icon = `http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`;
     return `${icon}`;
   }
   return (
@@ -26,8 +26,8 @@ export default function DailyForecast(props) {
         <img src={showIcon()} alt="warm" />
       </div>
       <div className="ForecastTemperature">
-        <span className="ForecastTemperatureMin"> {maxTemp()}°C|</span>
-        <span className="ForecastTemperatureMin"> {minTemp()}°F</span>
+        <span className="ForecastTemperatureMax"> {maxTemp()}°C</span>
+        <span className="ForecastTemperatureMin"> {minTemp()}°C</span>
       </div>
     </div>
   );
