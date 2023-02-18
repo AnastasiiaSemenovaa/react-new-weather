@@ -86,7 +86,7 @@ export default function Weather(props) {
         <WeatherForecast coordinates={weatherData.coordinates} />
 
         <div className="Footer">
-          {" "}
+          {/* {" "}
           <a
             href="https://github.com/AnastasiiaSemenovaa/react-new-weather"
             className="linkStyle"
@@ -95,7 +95,7 @@ export default function Weather(props) {
           >
             View the code
           </a>{" "}
-          created by Anastasiia Semenova
+          created by Anastasiia Semenova */}
         </div>
       </div>
     );
